@@ -1,40 +1,26 @@
-//to use node we will require some modules, a module is like a library, does what classes do in object oriented programming, node modules allow us to import inbuilt code, we are creating an instance with the word require aka 
-//this is a basic server with node js
-var http = require('http');
-var hello = require('./my_module.js');
+//fs used for filesystem input and output
+var fs = require('fs');
 
-http.createServer(function (req, res) {
-    var body = 'this is the body of the response';
-    var content_length = body.length;
-    res.writeHead(
-        200, 
-        {
-            'Content-Type': 'text/plain',
-            'Content-Length': content_length
-        }
-    );
-    res.end(body);
-}).listen(3000);
-//3000 is port you listen on
+//the function is a callback triggered when the file is read
+var read_string = fs.readFile('test.txt', 'utf8', function (err, data) {
+    if (err) 
+        return console.error(err);
+    
+    console.log(data)
+    return data;
+});
 
-console.log('Server is running on http://127.0.0.1:3000')
-console.log(__dirname);
-console.log(__filename);
+//the function is a callback triggered when the file is read
+var readStringSync = fs.readFileSync('test.txt', 'utf8');
 
-var time = 0;
+//note this note below will appear first due to asnc non-blocking nature of node
+console.log('the file is read');
 
-var timer = setInterval(function(){
-    time+=1;
-    console.log(time, ` hey, ${time} seconds passed`)
-    if (time>3) {
-        clearInterval(timer);
-    }
-}, 1000);
-
-console.log(hello.sayHelloInEnglish());
-console.log(hello.sayHelloInSpanish());
-
-
-
-
+fs.writeFile('text3.txt', readStringSync, function (err, data) {
+    console.log(readStringSync,22)
+    if (err) 
+        return console.error(err);
+    
+    console.log('successful')
+});
 
