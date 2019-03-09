@@ -1,6 +1,0 @@
-I am going to write something 1.
-I am going to write something 2.1.
-I am going to write something 3.
-I am going to write something 4.
-I am going to write something 5.
-I am going to write something 6.
