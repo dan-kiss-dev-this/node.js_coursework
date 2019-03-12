@@ -1,0 +1,17 @@
+{
+    "firstName": "John",
+    "zipCode": 34234,
+    "phone": [
+        {
+            "type": "home",
+            "number": 23123123,
+            "primary": true
+        },
+        {
+            "type": "cell",
+            "number": 345345345
+        }
+    ],
+    "tracked": null
+}
+    
