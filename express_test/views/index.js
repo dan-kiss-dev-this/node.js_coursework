@@ -23,17 +23,26 @@ app.get('/contact', function(req, res) {
 });
 
 var students = {
-    1 : 'Mark',
-    2: 'Tom',
-    3: 'john'
+    1: {
+        name: 'Mark',
+        subjects : ['node', 'java', 'ruby']
+    },
+    2: {
+        name: 'Tom',
+        subjects : ['node', 'c++', 'ruby']
+    },
+    3: {
+        name: 'john',
+        subjects : ['node', 'c', 'ruby']
+    }
 }
 
 //we are passing parameters via the route
 //:colon before parameter name to get the parameter
 //req.params.id can we used to query a database
 app.get('/students/:id', function(req, res) {
-    //from students.ejs below
-    res.render('students', { name : students[req.params.id], id : req.params.id});
+    //from students.ejs below, dont add .ejs but will render student.ejs
+    res.render('students', { name : students[req.params.id].name, id : req.params.id, subjects: students[req.params.id].subjects});
 });
 
 //app is created an will listen on port 3000

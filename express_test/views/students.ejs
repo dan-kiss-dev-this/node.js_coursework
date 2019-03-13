@@ -8,5 +8,11 @@
     </head>
     <body>
         <h1>Student Name: <%= name %>, Id: <%= id %></h1>
+        <h1>Subjects</h1>
+        <ul>
+            <% subjects.forEach(function(item) { %>
+                <li><%= item %></li>
+            <% }); %>
+        </ul>
     </body>
 </html>
