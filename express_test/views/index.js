@@ -33,7 +33,7 @@ var students = {
 //req.params.id can we used to query a database
 app.get('/students/:id', function(req, res) {
     //from students.ejs below
-    res.render('students', { name : students[req.params.id]});
+    res.render('students', { name : students[req.params.id], id : req.params.id});
 });
 
 //app is created an will listen on port 3000
